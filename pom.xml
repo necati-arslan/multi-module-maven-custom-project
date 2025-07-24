@@ -51,7 +51,7 @@
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <includeTests>false</includeTests>
-                    <failOnError>true</failOnError> 
+                    <failOnError>true</failOnError>
                 </configuration>
             </plugin>
 
