@@ -43,7 +43,6 @@
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <includeTests>false</includeTests>
-                    <htmlOutput>true</htmlOutput>
                     <xmlOutput>true</xmlOutput>
                     <xmlOutputDirectory>${project.basedir}/spotbugs</xmlOutputDirectory>
                 </configuration>
@@ -60,7 +59,6 @@
                         <phase>install</phase>
                         <configuration>
                             <target>
-                                <mkdir dir="target/spotbugs" />
                                 <copy file="core/spotbugs/spotbugs.xml"
                                       tofile="spotbugs/core-spotbugs.xml"
                                       overwrite="true"
