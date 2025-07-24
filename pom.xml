@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -9,9 +10,49 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <modules>
         <module>core</module>
         <module>infra</module>
         <module>app</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.3.0</version>
+                <executions>
+                    <execution>
+                        <id>spotbugs-generate-reports</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>spotbugs</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnError>true</failOnError>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    <includeTests>false</includeTests>
+                    <xmlOutput>true</xmlOutput>
+                    <xmlOutputDirectory>${project.build.directory}/spotbugs</xmlOutputDirectory>
+                </configuration>
+            </plugin>
+
+
+
+
+        </plugins>
+    </build>
+
+
 </project>

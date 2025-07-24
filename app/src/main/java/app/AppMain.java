@@ -1,13 +1,18 @@
 package app;
 
 import core.CoreService;
-import infra.InfraAdapter;
+import core.model.Customer;
+import core.service.CustomerService;
+import infra.service.InMemoryCustomerService;
 
 public class AppMain {
     public static void main(String[] args) {
-        CoreService service = new CoreService();
-        InfraAdapter adapter = new InfraAdapter();
-        System.out.println(service.message());
-        System.out.println(adapter.connect());
+        CustomerService service = new InMemoryCustomerService();
+
+        service.addCustomer(new Customer(1L, "Alice"));
+        service.addCustomer(new Customer(2L, "Bob"));
+
+        System.out.println("All customers:");
+        service.findAll().forEach(System.out::println);
     }
 }
