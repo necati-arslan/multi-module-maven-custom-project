@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<BugCollection version='4.8.3' threshold='low' effort='max'><Error></Error><Project><SrcDir>C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-maven-custim-project\app\src\main\java</SrcDir><SrcDir>C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-maven-custim-project\app\target\generated-sources\annotations</SrcDir><SrcDir>C:\Users\NecatiArslan\Desktop\voorbeeld-project\IntelliJ\multi-module-maven-custim-project\app\src\test\java</SrcDir></Project></BugCollection>
