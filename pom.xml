@@ -16,46 +16,24 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <modules>
-        <module>core</module>
-        <module>infra</module>
-        <module>app</module>
-    </modules>
 
-    <!-- Plugin management to ensure compatible versions -->
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.12.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
-    <!-- Reporting section to generate SpotBugs report on mvn site -->
     <reporting>
         <plugins>
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.7.3.0</version>
+                <version>4.9.3.0</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <includeTests>false</includeTests>
-                    <failOnError>true</failOnError>
                 </configuration>
             </plugin>
-
         </plugins>
     </reporting>
 
+    <modules>
+        <module>core</module>
+        <module>infra</module>
+        <module>app</module>
+    </modules>
 </project>
