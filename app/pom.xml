@@ -31,31 +31,34 @@
 
         <plugins>
             <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>app.AppMain</mainClass>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.6.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
-                        <id>copy-deps</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                            <includeScope>runtime</includeScope>
+                            <!-- Gereksiz bağımlılık satırlarını kırpılmış pom’a taşı -->
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                            <!-- Çalıştırılabilir manifest -->
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>app.AppMain</mainClass>
+                                </transformer>
+                                <!-- (Opsiyonel) Service dosyalarını birleştir (SPI kullanan kütüphaneler için) -->
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            </transformers>
+                            <!-- (Opsiyonel) Paket ismi çakışmalarında gölgeleme/relocation
+                            <relocations>
+                              <relocation>
+                                <pattern>some.conflicting.pkg</pattern>
+                                <shadedPattern>shadowed.some.conflicting.pkg</shadedPattern>
+                              </relocation>
+                            </relocations>
+                            -->
                         </configuration>
                     </execution>
                 </executions>

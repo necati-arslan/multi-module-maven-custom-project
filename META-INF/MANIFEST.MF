@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.3.0
+Build-Jdk-Spec: 17
+Class-Path: lib/core-1.0.0.jar lib/infra-1.0.0.jar
+Main-Class: app.AppMain
+
