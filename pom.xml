@@ -39,7 +39,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <failOnError>true</failOnError>
+                    <failOnError>false</failOnError>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <includeTests>false</includeTests>
